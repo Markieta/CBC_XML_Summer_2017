@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CBC N00S 4 N00BS</string>
+    <string name="cbc_url">http://www.cbc.ca/cmlink/rss-topstories</string>
 </resources>
