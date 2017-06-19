@@ -41,7 +41,7 @@ public class HeadlinesFragment extends ListFragment {
     public void onStart() {
         super.onStart();
 
-        if (getFragmentManager().findFragmentById(R.id.article_fragment) != null) {
+        if (getFragmentManager().findFragmentById(R.id.article) != null) {
             getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         }
     }
