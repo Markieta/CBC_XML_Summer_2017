@@ -20,11 +20,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class ArticleFragment extends Fragment {
     final static String ARG_POSITION = "position";
     int mCurrentPosition = -1;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +36,7 @@ public class ArticleFragment extends Fragment {
         if (savedInstanceState != null) {
             mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
         }
+
 
         return inflater.inflate(R.layout.article_view, container, false);
     }
@@ -50,8 +54,11 @@ public class ArticleFragment extends Fragment {
     }
 
     public void updateArticleView(int position) {
-        TextView article = (TextView) getActivity().findViewById(R.id.article);
-        article.setText(Ipsum.Articles[position]);
+        WebView article = (WebView) getActivity().findViewById(R.id.article);
+        article.loadUrl(MainActivity.links.elementAt(position));
+        WebSettings webSettings = article.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        article.setWebViewClient(new WebViewClient());
         mCurrentPosition = position;
     }
 

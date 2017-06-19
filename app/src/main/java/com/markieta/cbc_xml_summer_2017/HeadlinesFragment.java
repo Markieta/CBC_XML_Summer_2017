@@ -34,7 +34,7 @@ public class HeadlinesFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         int layout = android.R.layout.simple_list_item_activated_1;
-        setListAdapter(new ArrayAdapter<>(getActivity(), layout, Ipsum.Headlines));
+        setListAdapter(new ArrayAdapter<>(getActivity(), layout, MainActivity.headlines));
     }
 
     @Override
